@@ -39,7 +39,7 @@ export function HeroSection() {
             <span className="h-1.5 w-1.5 rounded-full bg-heritage-gold" />
             {t('hero.tagline')}
           </motion.p>
-          
+
           {/* Main Headline - Emotional Value Prop */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
@@ -49,7 +49,7 @@ export function HeroSection() {
           >
             {t('hero.title')}
           </motion.h1>
-          
+
           {/* Supporting Copy */}
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -65,22 +65,22 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mt-8 flex flex-wrap gap-4"
+            className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4"
           >
-            <Link to="/products?sort=bestseller">
+            <Link to="/products?sort=bestseller" className="w-full sm:w-auto">
               <Button
                 size="lg"
-                className="group h-14 bg-heritage-gold px-8 text-base font-semibold text-heritage-charcoal shadow-heritage-glow transition-all hover:bg-heritage-gold-light hover:shadow-lg"
+                className="group h-12 w-full bg-heritage-gold px-6 text-base font-semibold text-heritage-charcoal shadow-heritage-glow transition-all hover:bg-heritage-gold-light hover:shadow-lg sm:h-14 sm:w-auto sm:px-8"
               >
                 {t('hero.cta')}
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1 rtl:ml-0 rtl:mr-2 rtl:rotate-180 rtl:group-hover:-translate-x-1" />
               </Button>
             </Link>
-            <Link to="/about">
+            <Link to="/about" className="w-full sm:w-auto">
               <Button
                 size="lg"
                 variant="outline"
-                className="h-14 border-2 border-heritage-cream/40 bg-transparent px-8 text-base text-heritage-cream transition-all hover:border-heritage-cream hover:bg-heritage-cream hover:text-heritage-charcoal"
+                className="h-12 w-full border-2 border-heritage-cream/40 bg-transparent px-6 text-base text-heritage-cream transition-all hover:border-heritage-cream hover:bg-heritage-cream hover:text-heritage-charcoal sm:h-14 sm:w-auto sm:px-8"
               >
                 {t('hero.secondary')}
               </Button>
