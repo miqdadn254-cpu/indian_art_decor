@@ -55,7 +55,7 @@ export function Footer() {
             <Link to="/" className="flex items-center gap-2">
               <div className="flex flex-col">
                 <span className="font-heading text-xl font-semibold tracking-wide text-heritage-gold">
-                  Heritage
+                  Indian
                 </span>
                 <span className="text-xs tracking-[0.2em] text-heritage-cream/80">
                   Home Art
@@ -66,7 +66,7 @@ export function Footer() {
               "{t('footer.tagline')}"
             </p>
             <p className="mt-2 text-xs text-heritage-cream/50">- Harvey Fierstein</p>
-            
+
             {/* Social Links */}
             <div className="mt-6 flex gap-4">
               <a

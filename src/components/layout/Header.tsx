@@ -36,7 +36,7 @@ export function Header() {
         <Link to="/" className="flex items-center gap-2">
           <div className="flex flex-col">
             <span className="font-heading text-xl font-semibold tracking-wide text-heritage-gold md:text-2xl">
-              Heritage
+              Indian
             </span>
             <span className="text-xs tracking-[0.2em] text-heritage-cream/80">
               Home Art
@@ -50,11 +50,10 @@ export function Header() {
             <Link
               key={item.key}
               to={item.href}
-              className={`nav-link text-sm font-medium transition-colors ${
-                isActive(item.href)
+              className={`nav-link text-sm font-medium transition-colors ${isActive(item.href)
                   ? 'text-heritage-gold'
                   : 'text-heritage-cream/80 hover:text-heritage-cream'
-              }`}
+                }`}
             >
               {t(item.key)}
             </Link>
@@ -177,11 +176,10 @@ export function Header() {
                   key={item.key}
                   to={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`rounded-sm px-4 py-3 text-sm font-medium transition-colors ${
-                    isActive(item.href)
+                  className={`rounded-sm px-4 py-3 text-sm font-medium transition-colors ${isActive(item.href)
                       ? 'bg-heritage-gold text-heritage-charcoal'
                       : 'text-heritage-cream/80 hover:bg-heritage-dark hover:text-heritage-cream'
-                  }`}
+                    }`}
                 >
                   {t(item.key)}
                 </Link>
