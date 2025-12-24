@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Heritage Luxury Color Palette */
+    --background: 40 33% 97%;
+    --foreground: 20 10% 15%;
+
+    --card: 40 30% 98%;
+    --card-foreground: 20 10% 15%;
+
+    --popover: 40 30% 98%;
+    --popover-foreground: 20 10% 15%;
+
+    /* Heritage Green - Primary */
+    --primary: 130 35% 25%;
+    --primary-foreground: 40 30% 98%;
+
+    /* Warm Cream - Secondary */
+    --secondary: 35 30% 92%;
+    --secondary-foreground: 20 15% 20%;
+
+    /* Muted Warm Tones */
+    --muted: 35 20% 90%;
+    --muted-foreground: 20 10% 45%;
+
+    /* Gold Accent */
+    --accent: 40 50% 55%;
+    --accent-foreground: 20 10% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 30% 98%;
+
+    --border: 35 20% 85%;
+    --input: 35 20% 88%;
+    --ring: 130 35% 25%;
+
+    --radius: 0.5rem;
+
+    /* Custom Heritage Colors */
+    --heritage-charcoal: 20 10% 12%;
+    --heritage-dark: 20 15% 18%;
+    --heritage-green: 130 35% 25%;
+    --heritage-green-light: 130 30% 35%;
+    --heritage-gold: 40 60% 50%;
+    --heritage-gold-light: 40 55% 65%;
+    --heritage-cream: 40 33% 97%;
+    --heritage-warm: 35 40% 94%;
+    --heritage-terracotta: 15 50% 45%;
+    --heritage-burgundy: 350 40% 30%;
+
+    /* Typography */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-arabic: 'Cairo', 'Tajawal', sans-serif;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(20 10% 15% / 0.08);
+    --shadow-medium: 0 8px 30px -8px hsl(20 10% 15% / 0.12);
+    --shadow-glow: 0 0 40px hsl(40 60% 50% / 0.15);
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(20 15% 18% / 0.9) 0%, hsl(20 10% 12% / 0.95) 100%);
+    --gradient-gold: linear-gradient(135deg, hsl(40 60% 50%) 0%, hsl(40 55% 65%) 100%);
+    --gradient-warm: linear-gradient(180deg, hsl(40 33% 97%) 0%, hsl(35 40% 94%) 100%);
+
+    /* Sidebar - keeping for compatibility */
+    --sidebar-background: 40 33% 97%;
+    --sidebar-foreground: 20 10% 25%;
+    --sidebar-primary: 130 35% 25%;
+    --sidebar-primary-foreground: 40 30% 98%;
+    --sidebar-accent: 35 30% 92%;
+    --sidebar-accent-foreground: 20 15% 20%;
+    --sidebar-border: 35 20% 85%;
+    --sidebar-ring: 130 35% 25%;
+  }
+
+  .dark {
+    --background: 20 15% 10%;
+    --foreground: 40 20% 95%;
+
+    --card: 20 15% 12%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 20 15% 12%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 130 30% 45%;
+    --primary-foreground: 20 15% 10%;
+
+    --secondary: 20 15% 18%;
+    --secondary-foreground: 40 20% 95%;
+
+    --muted: 20 12% 20%;
+    --muted-foreground: 40 15% 65%;
+
+    --accent: 40 50% 55%;
+    --accent-foreground: 20 15% 10%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 40 20% 95%;
+
+    --border: 20 12% 22%;
+    --input: 20 12% 22%;
+    --ring: 130 30% 45%;
+
+    --sidebar-background: 20 15% 10%;
+    --sidebar-foreground: 40 15% 85%;
+    --sidebar-primary: 130 30% 45%;
+    --sidebar-primary-foreground: 20 15% 10%;
+    --sidebar-accent: 20 12% 18%;
+    --sidebar-accent-foreground: 40 15% 85%;
+    --sidebar-border: 20 12% 22%;
+    --sidebar-ring: 130 30% 45%;
+  }
+
+  /* RTL Support */
+  [dir="rtl"] {
+    font-family: var(--font-arabic);
+  }
+
+  [dir="rtl"] .font-heading {
+    font-family: var(--font-arabic);
+  }
+
+  /* RTL Typography Refinements - slightly increased line-height for Arabic */
+  [dir="rtl"] p,
+  [dir="rtl"] span,
+  [dir="rtl"] .leading-relaxed {
+    line-height: 1.8;
+  }
+
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 {
+    line-height: 1.5;
+  }
+
+  /* RTL icon flipping for directional icons */
+  [dir="rtl"] .rtl\:rotate-180 {
+    transform: rotate(180deg);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    @apply font-medium tracking-tight;
+  }
+}
+
+@layer components {
+  /* Heritage Button Variants */
+  .btn-heritage {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-sm font-medium transition-all duration-300;
+    @apply bg-primary text-primary-foreground hover:bg-heritage-green-light;
+    @apply shadow-soft hover:shadow-medium;
+  }
+
+  .btn-heritage-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-sm font-medium transition-all duration-300;
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground;
+  }
+
+  .btn-heritage-gold {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-sm font-medium transition-all duration-300;
+    background: var(--gradient-gold);
+    @apply text-heritage-charcoal hover:opacity-90;
+    @apply shadow-glow;
+  }
+
+  /* Heritage Card */
+  .card-heritage {
+    @apply bg-card rounded-sm overflow-hidden transition-all duration-300;
+    @apply shadow-soft hover:shadow-medium;
+  }
+
+  /* Section Styling */
+  .section-dark {
+    @apply bg-heritage-charcoal text-heritage-cream;
+  }
+
+  .section-warm {
+    background: var(--gradient-warm);
+  }
+
+  /* Heritage Heading with decorative line */
+  .heading-decorated {
+    @apply relative inline-block;
+  }
+
+  .heading-decorated::after {
+    content: '';
+    @apply absolute left-0 -bottom-2 w-16 h-0.5 bg-primary;
+  }
+
+  /* Product Card Hover Effect */
+  .product-card {
+    @apply relative overflow-hidden group;
+  }
+
+  .product-card-image {
+    @apply transition-transform duration-500 group-hover:scale-105;
+  }
+
+  .product-card-overlay {
+    @apply absolute inset-0 bg-heritage-charcoal/0 group-hover:bg-heritage-charcoal/20 transition-all duration-300;
+  }
+
+  /* Navigation Link */
+  .nav-link {
+    @apply relative text-foreground/80 hover:text-foreground transition-colors duration-200;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 -bottom-1 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  /* Category Card */
+  .category-card {
+    @apply relative overflow-hidden cursor-pointer;
+  }
+
+  .category-card-content {
+    @apply absolute inset-0 flex items-end p-4 bg-gradient-to-t from-heritage-charcoal/80 to-transparent;
+  }
+
+  /* Scroll Animation */
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Staggered Animation */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+
+  /* Shimmer Animation for Image Loading */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .font-arabic {
+    font-family: var(--font-arabic);
+  }
+
+  .bg-heritage-charcoal {
+    background-color: hsl(var(--heritage-charcoal));
+  }
+
+  .bg-heritage-dark {
+    background-color: hsl(var(--heritage-dark));
+  }
+
+  .bg-heritage-green {
+    background-color: hsl(var(--heritage-green));
+  }
+
+  .bg-heritage-gold {
+    background-color: hsl(var(--heritage-gold));
+  }
+
+  .bg-heritage-cream {
+    background-color: hsl(var(--heritage-cream));
+  }
+
+  .bg-heritage-warm {
+    background-color: hsl(var(--heritage-warm));
+  }
+
+  .text-heritage-charcoal {
+    color: hsl(var(--heritage-charcoal));
+  }
+
+  .text-heritage-green {
+    color: hsl(var(--heritage-green));
+  }
+
+  .text-heritage-gold {
+    color: hsl(var(--heritage-gold));
+  }
+
+  .text-heritage-cream {
+    color: hsl(var(--heritage-cream));
+  }
+
+  .border-heritage-gold {
+    border-color: hsl(var(--heritage-gold));
+  }
+
+  .shadow-heritage {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-heritage-md {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-heritage-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-gold {
+    background: var(--gradient-gold);
+  }
+
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+}
